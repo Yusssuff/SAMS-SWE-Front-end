@@ -121,9 +121,17 @@
         .btn-primary {
             background-color: var(--brand-700);
             color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
         }
         .btn-primary:hover {
             background-color: var(--brand-800);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.5);
+        }
+        .btn-primary:active {
+            transform: translateY(-1px);
         }
 
         .btn-outline {
@@ -540,21 +548,7 @@
 </head>
 <body>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="container top-bar-container">
-            <div class="top-links">
-                <a href="#">University Home</a>
-                <a href="#">Faculty Staff</a>
-                <a href="#">Alumni</a>
-            </div>
-            <div class="top-links">
-                <a href="#"><i class="fa-solid fa-globe"></i> English</a>
-                <a href="#"><i class="fa-solid fa-user"></i> Staff Login</a>
-            </div>
-        </div>
-    </div>
-
+    
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
@@ -562,19 +556,18 @@
             <a href="#" class="logo">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <div class="logo-text">
-                    <span class="logo-main">FCI<span style="color:var(--brand-600)">.SE</span></span>
-                    <span class="logo-sub">Faculty of Computers & AI</span>
+                    <span class="logo-main">SE Department</span>
+                    <span class="logo-sub">Faculty of Computers & Info</span>
                 </div>
             </a>
 
             <!-- Desktop Menu -->
             <div class="nav-links">
-                <a href="#about" class="nav-link">About Dept</a>
-                <a href="#academics" class="nav-link">Academics</a>
-                <a href="#research" class="nav-link">Research</a>
+                <a href="aboutus.html" class="nav-link">About Dept</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="study-plan.html" class="nav-link">Study Plan</a>
                 <a href="#people" class="nav-link">People</a>
-                <a href="#news" class="nav-link">News</a>
-                <a href="#portal" class="btn-portal">Student Portal</a>
+                <a href="#news" class="nav-link">Announcenmts</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -585,9 +578,12 @@
         
         <!-- Mobile Menu (Hidden) -->
         <div class="hidden" id="mobile-menu" style="position:absolute; top:80px; left:0; width:100%; background:white; border-bottom:1px solid #eee; padding:1rem;">
-            <a href="#about" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">About</a>
-            <a href="#academics" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">Academics</a>
-            <a href="#research" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">Research</a>
+            <a href="aboutus.html" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">About Dept</a>
+            <a href="courses.html" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">Courses</a>
+            <a href="study-plan.html" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">Study Plan</a>
+            <a href="#academics" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">Career Paths</a>
+            <a href="#people" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">People</a>
+            <a href="#news" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);">Announcements</a>
             <a href="#portal" style="display:block; margin-top:1rem; padding:0.5rem 1rem; background:var(--brand-600); color:white; text-align:center; border-radius:4px;">Student Portal</a>
         </div>
     </nav>
@@ -633,37 +629,79 @@
         </div>
     </div>
 
-    <!-- Academic Tracks -->
+    <!-- Career Paths in Software Engineering -->
     <section id="academics" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Academic Programs</h2>
-                <p class="section-desc">Specialized tracks designed to meet the evolving demands of the global technology sector.</p>
+                <h2 class="section-title">Software Engineering Career Paths</h2>
+                <p class="section-desc">Explore diverse career opportunities with competitive salary packages in the Software Engineering Department.</p>
             </div>
 
             <div class="grid-3">
                 <!-- Card 1 -->
                 <div class="dept-card">
                     <div class="card-icon"><i class="fa-solid fa-code-branch"></i></div>
-                    <h3 class="card-title">Software Engineering</h3>
-                    <p class="card-text">Focus on software architecture, design patterns, and enterprise system development lifecycles.</p>
-                    <a href="#" class="card-link">View Curriculum <i class="fa-solid fa-arrow-right"></i></a>
+                    <h3 class="card-title">Full Stack Developer</h3>
+                    <p class="card-text">Build complete web applications with modern technologies across frontend and backend. Master system integration and API development.</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: var(--brand-50); border-radius: 8px; text-align: center;">
+                        <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 0.3rem;">Starting Salary</p>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: var(--brand-600);">$65,000 - $85,000</p>
+                    </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="dept-card">
-                    <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
-                    <h3 class="card-title">Artificial Intelligence</h3>
-                    <p class="card-text">Advanced study in machine learning, neural networks, computer vision, and autonomous agents.</p>
-                    <a href="#" class="card-link">View Curriculum <i class="fa-solid fa-arrow-right"></i></a>
+                    <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3 class="card-title">Backend Engineer</h3>
+                    <p class="card-text">Design robust server-side applications, manage databases, and build scalable infrastructure for enterprise solutions.</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: var(--brand-50); border-radius: 8px; text-align: center;">
+                        <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 0.3rem;">Starting Salary</p>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: var(--brand-600);">$70,000 - $90,000</p>
+                    </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="dept-card">
+                    <div class="card-icon"><i class="fa-solid fa-laptop"></i></div>
+                    <h3 class="card-title">Frontend Developer</h3>
+                    <p class="card-text">Create engaging user interfaces and responsive designs using modern frameworks and UX principles.</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: var(--brand-50); border-radius: 8px; text-align: center;">
+                        <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 0.3rem;">Starting Salary</p>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: var(--brand-600);">$60,000 - $80,000</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="dept-card">
                     <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3 class="card-title">Cyber Security</h3>
-                    <p class="card-text">Comprehensive training in network security, cryptography, and ethical hacking methodologies.</p>
-                    <a href="#" class="card-link">View Curriculum <i class="fa-solid fa-arrow-right"></i></a>
+                    <h3 class="card-title">Security Engineer</h3>
+                    <p class="card-text">Protect applications and systems from vulnerabilities, implement security protocols, and conduct threat assessments.</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: var(--brand-50); border-radius: 8px; text-align: center;">
+                        <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 0.3rem;">Starting Salary</p>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: var(--brand-600);">$75,000 - $95,000</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="dept-card">
+                    <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="card-title">Machine Learning Engineer</h3>
+                    <p class="card-text">Develop intelligent systems using deep learning, neural networks, and advanced AI techniques for real-world applications.</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: var(--brand-50); border-radius: 8px; text-align: center;">
+                        <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 0.3rem;">Starting Salary</p>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: var(--brand-600);">$80,000 - $110,000</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="dept-card">
+                    <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3 class="card-title">DevOps Engineer</h3>
+                    <p class="card-text">Streamline development and operations through CI/CD pipelines, cloud infrastructure management, and automation.</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: var(--brand-50); border-radius: 8px; text-align: center;">
+                        <p style="font-size: 0.9rem; color: var(--slate-600); margin-bottom: 0.3rem;">Starting Salary</p>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: var(--brand-600);">$72,000 - $92,000</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -718,7 +756,7 @@
     <section id="news" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Department News</h2>
+                <h2 class="section-title">Announcenmts</h2>
             </div>
             
             <div class="news-list">
@@ -741,6 +779,10 @@
                     </div>
                     <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Read More</a>
                 </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="announcements.html" class="btn btn-primary">Explore More Announcements</a>
             </div>
         </div>
     </section>

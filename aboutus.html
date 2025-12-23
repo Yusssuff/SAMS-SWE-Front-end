@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Department - Software Engineering</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS Variables (Theme Configuration) --- */
+        :root {
+            --brand-50: #eff6ff;
+            --brand-100: #dbeafe;
+            --brand-200: #bfdbfe;
+            --brand-300: #93c5fd;
+            --brand-400: #60a5fa;
+            --brand-500: #2563eb;
+            --brand-600: #1d4ed8;
+            --brand-700: #1e40af;
+            --brand-800: #1e3a8a;
+            --brand-900: #172554;
+            
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            
+            --white: #ffffff;
+            
+            --font-main: 'Inter', sans-serif;
+            
+            --container-width: 1200px;
+            --header-height: 80px;
+            --top-bar-height: 40px;
+        }
+
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--slate-50);
+            color: var(--slate-600);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button, .btn {
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        /* --- Typography Utilities --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-main);
+            color: var(--slate-900);
+            line-height: 1.2;
+        }
+
+        .text-center { text-align: center; }
+        .text-white { color: var(--white); }
+        .font-bold { font-weight: 700; }
+        
+        /* --- Layout Utilities --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-center { justify-content: center; }
+        .gap-2 { gap: 0.5rem; }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+
+        .hidden { display: none; }
+
+        /* --- Components --- */
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background-color: var(--brand-700);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        }
+        .btn-primary:hover {
+            background-color: var(--brand-800);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.5);
+        }
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--brand-700);
+            border: 2px solid var(--brand-700);
+        }
+        .btn-outline:hover {
+            background-color: var(--brand-700);
+            color: var(--white);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: var(--header-height);
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--brand-800);
+            text-decoration: none;
+        }
+        .logo i {
+            font-size: 2rem;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+        .logo-main {
+            font-size: 1.25rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+        .logo-sub {
+            font-size: 0.75rem;
+            color: var(--slate-500);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--slate-600);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: var(--brand-700);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--brand-700) 0%, var(--brand-900) 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--brand-100);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section.bg-light {
+            background-color: var(--slate-100);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--slate-500);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--brand-600);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card-icon {
+            font-size: 3rem;
+            color: var(--brand-600);
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--slate-900);
+        }
+
+        .info-card p {
+            color: var(--slate-600);
+            line-height: 1.8;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .column-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--slate-900);
+        }
+
+        .column-text p {
+            margin-bottom: 1rem;
+            color: var(--slate-600);
+            line-height: 1.8;
+        }
+
+        .column-icon {
+            text-align: center;
+        }
+
+        .column-icon i {
+            font-size: 8rem;
+            color: var(--brand-100);
+            opacity: 0.8;
+        }
+
+        /* Regulations List */
+        .regulations-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .regulation-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--brand-600);
+            transition: all 0.3s ease;
+        }
+
+        .regulation-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .regulation-item h4 {
+            color: var(--brand-700);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .regulation-item ul {
+            margin-left: 1.5rem;
+            color: var(--slate-600);
+        }
+
+        .regulation-item li {
+            list-style-type: disc;
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--slate-900);
+            color: var(--slate-300);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--slate-300);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--slate-700);
+            padding-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--slate-400);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .column-icon i {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="test2.html" class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div class="logo-text">
+                    <span class="logo-main">SE Department</span>
+                    <span class="logo-sub">Faculty of Computers & Info</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="nav-links">
+                <a href="aboutus.html" class="nav-link" style="color: var(--brand-700); font-weight: 700;">About Dept</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="study-plan.html" class="nav-link">Study Plan</a>
+                <a href="test2.html#people" class="nav-link">People</a>
+                <a href="announcements.html" class="nav-link">Announcements</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">About the Department</h1>
+            <p class="hero-subtitle">Excellence in Software Engineering Education and Research</p>
+        </div>
+    </section>
+
+    <!-- Department Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Department Overview</h2>
+            </div>
+
+            <div class="two-column">
+                <div class="column-text">
+                    <h3>Who We Are</h3>
+                    <p>
+                        The Department of Software Engineering at the Faculty of Computers & Artificial Intelligence is committed to advancing software engineering education and research. Our department serves as a hub of innovation, bringing together world-class faculty, cutting-edge research facilities, and talented students.
+                    </p>
+                    <p>
+                        Established to meet the growing demand for skilled software engineers in the industry, our department has grown to become a leader in software engineering education in the region. We offer comprehensive programs designed to prepare students for successful careers in software development, systems architecture, artificial intelligence, and cybersecurity.
+                    </p>
+                    <p>
+                        Our commitment extends beyond the classroom, fostering industry partnerships, collaborative research, and a vibrant campus community that encourages innovation and intellectual growth.
+                    </p>
+                </div>
+                <div class="column-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mission & Vision</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Mission Card -->
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To educate and inspire the next generation of software engineers who will drive innovation and solve complex technological challenges. We are committed to:
+                    </p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li style="list-style-type: disc; margin-bottom: 0.5rem;">Providing world-class education in software engineering principles and practices</li>
+                        <li style="list-style-type: disc; margin-bottom: 0.5rem;">Conducting cutting-edge research that advances the field</li>
+                        <li style="list-style-type: disc; margin-bottom: 0.5rem;">Fostering partnerships with industry and academic institutions</li>
+                        <li style="list-style-type: disc; margin-bottom: 0.5rem;">Developing ethical professionals who contribute to society</li>
+                    </ul>
+                </div>
+
+                <!-- Vision Card -->
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To be a globally recognized leader in software engineering education and research. We envision:
+                    </p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li style="list-style-type: disc; margin-bottom: 0.5rem;">A center of excellence attracting top talent from around the world</li>
+                        <li style="list-style-type: disc; margin-bottom: 0.5rem;">Innovation labs driving technological advancement</li>
+                        <li style="list-style-type: disc; margin-bottom: 0.5rem;">Graduates who are leaders in their fields</li>
+                        <li style="list-style-type: disc; margin-bottom: 0.5rem;">Strong impact on industry and society through research and education</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Core Values</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+                <div class="info-card" style="border-top-color: #3b82f6;">
+                    <div class="info-card-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem;">Excellence</h3>
+                    <p>We strive for the highest standards in teaching, research, and student outcomes.</p>
+                </div>
+
+                <div class="info-card" style="border-top-color: #10b981;">
+                    <div class="info-card-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem;">Collaboration</h3>
+                    <p>We believe in teamwork and partnership with industry, academia, and our community.</p>
+                </div>
+
+                <div class="info-card" style="border-top-color: #f59e0b;">
+                    <div class="info-card-icon">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem;">Innovation</h3>
+                    <p>We foster creativity and encourage exploring new ideas and technologies.</p>
+                </div>
+
+                <div class="info-card" style="border-top-color: #ef4444;">
+                    <div class="info-card-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 style="font-size: 1.2rem;">Integrity</h3>
+                    <p>We maintain ethical standards and promote responsible technology use.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- University Regulations -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">University Regulations</h2>
+                <p class="section-desc">Guidelines and policies governing academic conduct and student responsibilities</p>
+            </div>
+
+            <div class="regulations-list">
+                <!-- Regulation 1 -->
+                <div class="regulation-item">
+                    <h4><i class="fa-solid fa-book"></i> Academic Standards</h4>
+                    <ul>
+                        <li>Minimum GPA of 2.0 required to remain in good academic standing</li>
+                        <li>Students must complete courses within the prescribed time frame</li>
+                        <li>Retaking of courses is permitted; the highest grade will be used for GPA calculation</li>
+                        <li>Academic probation is imposed for GPA below 2.0; dismissal may follow persistent low performance</li>
+                        <li>Withdrawal from courses must be done by the published deadline</li>
+                    </ul>
+                </div>
+
+                <!-- Regulation 2 -->
+                <div class="regulation-item">
+                    <h4><i class="fa-solid fa-pencil"></i> Academic Integrity</h4>
+                    <ul>
+                        <li>Plagiarism, cheating, and academic dishonesty are strictly prohibited</li>
+                        <li>All assignments must be original work unless otherwise specified</li>
+                        <li>Proper citation of sources is required for all referenced material</li>
+                        <li>Violations will result in grade penalties, course failure, or expulsion</li>
+                        <li>Students must maintain academic integrity in all coursework and examinations</li>
+                    </ul>
+                </div>
+
+                <!-- Regulation 3 -->
+                <div class="regulation-item">
+                    <h4><i class="fa-solid fa-id-card"></i> Attendance Requirements</h4>
+                    <ul>
+                        <li>Regular attendance is mandatory for all courses</li>
+                        <li>Excessive absence may result in course failure</li>
+                        <li>Instructors maintain attendance records and may exclude students with poor attendance</li>
+                        <li>Excused absences require documented evidence (medical certificates, etc.)</li>
+                        <li>Permission to miss classes must be obtained from the department chair</li>
+                    </ul>
+                </div>
+
+                <!-- Regulation 4 -->
+                <div class="regulation-item">
+                    <h4><i class="fa-solid fa-calendar"></i> Registration & Enrollment</h4>
+                    <ul>
+                        <li>Students must register during the designated registration period each semester</li>
+                        <li>Course prerequisites must be satisfied before enrollment</li>
+                        <li>Add/drop deadlines must be observed as per the academic calendar</li>
+                        <li>Full-time status requires enrollment in a minimum of 12 credit hours</li>
+                        <li>Maximum credit hours per semester are specified by the degree program</li>
+                    </ul>
+                </div>
+
+                <!-- Regulation 5 -->
+                <div class="regulation-item">
+                    <h4><i class="fa-solid fa-chart-line"></i> Progression Requirements</h4>
+                    <ul>
+                        <li>Students must complete prerequisite courses before advancing to higher-level courses</li>
+                        <li>Satisfactory progress toward degree completion is required</li>
+                        <li>Students with excessive incomplete grades may be required to withdraw</li>
+                        <li>Grade replacement policies allow substitution of grades under specific conditions</li>
+                        <li>Junior and senior standing requires completion of specific credit hours</li>
+                    </ul>
+                </div>
+
+                <!-- Regulation 6 -->
+                <div class="regulation-item">
+                    <h4><i class="fa-solid fa-gavel"></i> Conduct & Discipline</h4>
+                    <ul>
+                        <li>Students must adhere to the university code of conduct at all times</li>
+                        <li>Misconduct may result in disciplinary action ranging from warnings to expulsion</li>
+                        <li>All students are expected to be respectful and professional in their interactions</li>
+                        <li>Violations of campus policies will be addressed by student conduct offices</li>
+                        <li>Students have the right to appeal disciplinary decisions through proper channels</li>
+                    </ul>
+                </div>
+
+                <!-- Regulation 7 -->
+                <div class="regulation-item">
+                    <h4><i class="fa-solid fa-dollar-sign"></i> Financial Policies</h4>
+                    <ul>
+                        <li>Tuition and fees must be paid by the deadline each semester</li>
+                        <li>Late payment fees apply if payment is made after the deadline</li>
+                        <li>Financial aid eligibility requires maintaining satisfactory academic progress</li>
+                        <li>Refund policies vary based on withdrawal timing and circumstances</li>
+                        <li>Students are responsible for understanding payment plans and deadlines</li>
+                    </ul>
+                </div>
+
+                <!-- Regulation 8 -->
+                <div class="regulation-item">
+                    <h4><i class="fa-solid fa-shield"></i> Rights & Responsibilities</h4>
+                    <ul>
+                        <li>Students have the right to fair and unbiased treatment in all academic matters</li>
+                        <li>Instructors must provide clear syllabi and grading criteria at the course start</li>
+                        <li>Students are responsible for maintaining their academic records and progress</li>
+                        <li>Classroom equipment and university facilities must be used responsibly</li>
+                        <li>Students must report grade disputes within the prescribed timeframe</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container text-center">
+            <h2 class="section-title">Join Our Community</h2>
+            <p class="section-desc" style="margin-bottom: 2rem;">
+                Be part of a vibrant academic community dedicated to excellence in software engineering. We welcome students passionate about technology and committed to making a difference.
+            </p>
+            <a href="test2.html" class="btn btn-primary">Explore Career Paths</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: white; margin-bottom: 1rem;">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div class="logo-text">
+                            <span class="logo-main">SE Department</span>
+                        </div>
+                    </div>
+                    <p style="color: var(--slate-300); line-height: 1.6;">
+                        Faculty of Computers & Artificial Intelligence.<br>
+                        Building Future Leaders.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="test2.html">Home</a></li>
+                        <li><a href="aboutus.html">About Department</a></li>
+                        <li><a href="announcements.html">Announcements</a></li>
+                        <li><a href="test2.html#people">Faculty</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Student Handbook</a></li>
+                        <li><a href="#">Career Services</a></li>
+                        <li><a href="#">IT Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contact@fci.edu">contact@fci.edu</a></li>
+                        <li><a href="tel:+201234567890">+20 123 456 7890</a></li>
+                        <li>Cairo, Egypt</li>
+                        <li><a href="#">Office Hours</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Faculty of Computers & Artificial Intelligence - Software Engineering Department. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
