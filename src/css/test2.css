@@ -165,6 +165,167 @@
     gap: 2rem;
 }
 
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--white);
+    border: 1px solid var(--slate-200);
+    border-top: 4px solid var(--brand-600);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--brand-600);
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--brand-900);
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: var(--slate-500);
+    font-size: 0.95rem;
+}
+
+/* Research Areas */
+.research-areas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.research-card {
+    background: var(--white);
+    border: 1px solid var(--slate-200);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.research-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.research-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--brand-100);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.research-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--brand-900);
+    font-weight: 700;
+}
+
+.research-card p {
+    color: var(--slate-500);
+    margin-bottom: 1rem;
+}
+
+.link-arrow {
+    color: var(--brand-600);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.link-arrow:hover {
+    text-decoration: underline;
+}
+
+/* People Grid */
+.people-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.person-card {
+    background: var(--white);
+    border: 1px solid var(--slate-200);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.person-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: var(--brand-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--brand-600);
+}
+
+.person-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--brand-900);
+    font-weight: 700;
+}
+
+.person-title {
+    color: var(--brand-600);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.person-bio {
+    color: var(--slate-500);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.person-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.person-links a {
+    color: var(--slate-400);
+    font-size: 1.25rem;
+    transition: color 0.2s;
+}
+
+.person-links a:hover {
+    color: var(--brand-600);
+}
+
+
 /* Department Card Style */
 .dept-card {
     background: var(--white);
@@ -278,6 +439,9 @@
 
 @media (min-width: 768px) {
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .features-grid { grid-template-columns: repeat(3, 1fr); }
+    .research-areas { grid-template-columns: repeat(2, 1fr); }
+    .people-grid { grid-template-columns: repeat(4, 1fr); }
     .faculty-grid { grid-template-columns: repeat(4, 1fr); }
     .stats-grid { grid-template-columns: repeat(4, 1fr); }
     .news-item { flex-direction: row; align-items: center; justify-content: space-between; }

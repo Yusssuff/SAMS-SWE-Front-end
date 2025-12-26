@@ -163,15 +163,6 @@ function generateTabbedLayout() {
   return html;
 }
 
-// Initialize layouts
-document.addEventListener('DOMContentLoaded', function() {
-  // Generate tabbed layout
-  document.getElementById('tabs-layout').innerHTML = generateTabbedLayout();
-  
-  // Setup tab switching for tabbed layout
-  setupTabbedView();
-});
-
 // Setup tabbed view functionality
 function setupTabbedView() {
   document.querySelectorAll('.semester-tab').forEach(tab => {
@@ -191,4 +182,14 @@ function setupTabbedView() {
       });
     });
   });
+}
+
+// Main initialization function
+export function initCoursesLayout() {
+  // Generate tabbed layout
+  const tabsContainer = document.getElementById('tabs-layout');
+  if (tabsContainer) {
+    tabsContainer.innerHTML = generateTabbedLayout();
+    setupTabbedView();
+  }
 }

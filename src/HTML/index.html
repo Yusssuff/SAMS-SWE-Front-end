@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dept. of Software Engineering</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="#home" class="logo">
+                <img src="src/Images/dept-logo-blue.png" alt="Department Logo" style="width: 50px; height: 50px; object-fit: contain;">
+                <div class="logo-text">
+                    <span class="logo-main">SE Department</span>
+                    <span class="logo-sub">Faculty of Computers & Info</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="nav-links">
+                <a href="#about" class="nav-link" data-page="about">About Dept</a>
+                <a href="#courses" class="nav-link" data-page="courses">Courses</a>
+                <a href="#study-plan" class="nav-link" data-page="study-plan">Study Plan</a>
+                <a href="#people" class="nav-link" data-page="people">People</a>
+                <a href="#announcements" class="nav-link" data-page="announcements">Announcements</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu (Hidden) -->
+        <div class="hidden" id="mobile-menu" style="position:absolute; top:80px; left:0; width:100%; background:white; border-bottom:1px solid #eee; padding:1rem;">
+            <a href="#about" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);" data-page="about">About Dept</a>
+            <a href="#courses" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);" data-page="courses">Courses</a>
+            <a href="#study-plan" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);" data-page="study-plan">Study Plan</a>
+            <a href="#people" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);" data-page="people">People</a>
+            <a href="#announcements" style="display:block; padding:0.5rem 1rem; color:var(--slate-700);" data-page="announcements">Announcements</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div id="app"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="color: white; margin-bottom: 1rem;">
+                        <img src="src/Images/dept-logo-white.png" alt="Department Logo" style="width: 50px; height: 50px; object-fit: contain;">
+                        <div class="logo-text">
+                            <span class="logo-main">SE Department</span>
+                            <span class="logo-sub" style="color: var(--slate-300);">Faculty of Computers & Info</span>
+                        </div>
+                    </div>
+                    <p style="color: var(--slate-300); line-height: 1.6;">
+                        Faculty of Computers & Info
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about" data-page="about">About Department</a></li>
+                        <li><a href="#courses" data-page="courses">Courses</a></li>
+                        <li><a href="#study-plan" data-page="study-plan">Study Plan</a></li>
+                        <li><a href="#announcements" data-page="announcements">Announcements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Location</h4>
+                        <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        <iframe
+                            src="https://www.google.com/maps?q=Sadat%20Academy%20for%20Management%20Sciences%20Maadi&output=embed"
+                            style="border:0; width:100%; height:280px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2025 Faculty of Computers & Info. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
