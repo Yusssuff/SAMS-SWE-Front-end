@@ -42,47 +42,6 @@
     margin: 0 auto;
 }
 
-/* Buttons Specific for Courses */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: var(--brand-700);
-    border: 2px solid var(--brand-700);
-}
-
-.btn-outline:hover {
-    background-color: var(--brand-700);
-    color: var(--white);
-}
-
-.btn-outline.active {
-    background-color: var(--brand-700);
-    color: var(--white);
-}
-
-/* Layout Switch */
-.layout-switch {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -150,49 +109,6 @@
     color: var(--slate-800);
 }
 
-/* Table Layout */
-.courses-table table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-}
-
-.courses-table thead th {
-    background: var(--brand-700);
-    color: var(--white);
-    text-align: left;
-    padding: 0.85rem 1rem;
-    font-weight: 700;
-}
-
-.courses-table tbody td {
-    padding: 0.85rem 1rem;
-    border-bottom: 1px solid var(--slate-200);
-    vertical-align: top;
-}
-
-.courses-table tbody tr:nth-child(even) {
-    background: var(--slate-100);
-}
-
-.courses-table .col-code {
-    font-family: monospace;
-    color: var(--slate-700);
-}
-
-.courses-table .col-credits {
-    color: var(--brand-700);
-    font-weight: 700;
-}
-
-@media (max-width: 768px) {
-    .hero-title { font-size: 2rem; }
-    .section-title { font-size: 1.8rem; }
-}
-
 /* Footer fixes for courses page */
 .footer {
     text-align: left;
@@ -204,4 +120,100 @@
 
 .footer .footer-col {
     text-align: left;
+}
+
+/* ===== TABBED LAYOUT ===== */
+.layout-container {
+    display: none;
+}
+
+.layout-container.active {
+    display: block;
+}
+
+.semester-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--slate-200);
+    overflow-x: auto;
+}
+
+.semester-tab {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 600;
+    color: var(--slate-600);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.semester-tab:hover {
+    color: var(--brand-700);
+    background: var(--brand-50);
+}
+
+.semester-tab.active {
+    color: var(--brand-700);
+    border-bottom-color: var(--brand-700);
+}
+
+.semester-content {
+    display: none;
+}
+
+.semester-content.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+.semester-heading {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: var(--brand-700);
+}
+
+.course-category {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    color: var(--brand-600);
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--brand-300);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero-title { 
+        font-size: 2rem; 
+    }
+    
+    .section-title { 
+        font-size: 1.8rem; 
+    }
+    
+    .semester-tabs {
+        gap: 0.25rem;
+    }
+    
+    .semester-tab {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
 }
